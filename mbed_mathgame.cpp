@@ -45,8 +45,6 @@ Thread t1( osPriorityHigh );    // thread 1 (function start game)
 Thread t2( osPriorityNormal );  // thread 2 (function play game)
 EventFlags flags; // flag for switch thread ( inter-synchronization)
 
-bool stop = true ;
-
 void home_page();
 void show_problem();
 void clear_problem();
@@ -209,7 +207,7 @@ void random_problem(String parameter){
     show_problem(x,y,mode,choice1,choice2,choice3,choice4);
 
     // polling check answer
-    while (stop) {
+    while (1) {
       back_to_home(); // case push red button
 
       // check choice and answer is equal
@@ -257,7 +255,7 @@ void random_problem(String parameter){
     // test
     ThisThread::sleep_for( 1000ms );
     
-    if (stop != false ){
+    if (score != 0 ){
       clear_problem(x,y,mode,choice1,choice2,choice3,choice4);
     }
 
