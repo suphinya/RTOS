@@ -45,6 +45,8 @@ Thread t1( osPriorityHigh );    // thread 1 (function start game)
 Thread t2( osPriorityNormal );  // thread 2 (function play game)
 EventFlags flags; // flag for switch thread ( inter-synchronization)
 
+bool stop = true ;
+
 void home_page();
 void show_problem();
 void clear_problem();
